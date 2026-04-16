@@ -100,7 +100,7 @@ body {
 .timer-container {
     margin: auto;
     outline: white 2px solid;
-    background-color: rgb(35, 62, 47, 0.75);
+    background-color: rgb(35, 62, 47, 0.8);
     /* background-color: rgba(0, 0, 0, 0.6); */
     border-radius: 0.5rem;
     margin-top: 40px;
@@ -200,12 +200,14 @@ li.separator {
   margin-bottom: 30px;
   width: 92%;
   display: flex;
+  flex-direction: column;
+  /* height: 100vh;  */
   justify-content: center;
   align-items: center;
   outline: white 2px solid;
   background-color: #F5F5F4;
   border-radius: 0.5rem;
-  padding: 10px 0;
+  padding: 16px 0px;
 }
 
 .todo-list-container h2 {
@@ -283,7 +285,8 @@ li.separator {
   font-size: 18px;
   color: black;
   list-style: none;
-  padding: 12px 8px 12px 50px;
+  /* padding: 12px 8px 12px 50px; */
+  padding: 12px 48px 12px 50px;
   user-select: none;
   cursor: pointer;
   position: relative;
@@ -342,6 +345,13 @@ li.separator {
   background-color: #edeef0;
 }
 
-.tasks-display {
+#tasks-display {
   margin-bottom: 10px;
+  flex: 1;
+  /* overflow-y: auto;
+  margin-top: 12px; */
+  max-height: 50vh;          /* adjust; this scales by screen size */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
