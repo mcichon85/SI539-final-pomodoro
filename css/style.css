@@ -22,6 +22,12 @@
     font-style: normal;
 }
 
+/* I was running into an issue where the bg image would not cover the full screen. I prompted UM-GPT to help with that and it suggested
+this html, body css code. */
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
 body {
     font-family: "Nunito Sans", sans-serif;
@@ -31,8 +37,10 @@ body {
     background-color: #00274C;
     background-image: url("../assets/images/Flora_background_image.png");
     background-repeat: no-repeat;
-    /* background-position:  */
+    min-height: 100vh;
+    background-attachment: fixed;
     background-size: cover;
+    background-position: 75% 50%;
     box-sizing: border-box;
 }
 
@@ -75,7 +83,7 @@ body {
     padding-top: 5px;
   }
 
-.mobile-theme-buttons {
+/* .mobile-theme-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -87,15 +95,16 @@ body {
     padding: 5px 15px;
     margin: 20px 10px;
     border-radius: 5%;
-}
+} */
 
 .timer-container {
     margin: auto;
     outline: white 2px solid;
-    background-color: rgba(255, 0, 0, 0.3);
-    border-radius: 3%;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    background-color: rgb(35, 62, 47, 0.75);
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    border-radius: 0.5rem;
+    margin-top: 40px;
+    margin-bottom: 30px;
     padding: 10px 0;
     width: 92%;
 }
@@ -111,6 +120,9 @@ body {
 .timer-buttons button{
     margin: 0px 8px;
     padding: 10px 13px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    border-radius: 0.5rem;
 }
 
 .timer-settings { 
@@ -128,7 +140,18 @@ body {
     padding-bottom: 0px;
     padding: 5px 0px;
     width: 50%;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    color: #447C5D;
 }
+
+.timer-settings button:hover, .timer-buttons button:hover {
+  box-shadow: 5px 5px 7px rgb(35, 62, 47, 0.9);
+}
+
 
 /* Video for coding the countdown timer: https://www.youtube.com/watch?v=5_klk8r-N6g */
 
@@ -158,7 +181,7 @@ body {
 
 .timer-countdown ul li span {
     display: block;
-    font-size: 8rem;
+    font-size: 9rem;
     font-family: 'DS-Digital', monospace;
     font-weight: 600;
     font-style: normal;
@@ -173,24 +196,24 @@ li.separator {
 /* to do list*/
 .todo-list-container {
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 30px;
   width: 92%;
   display: flex;
   justify-content: center;
   align-items: center;
   outline: white 2px solid;
   background-color: #F5F5F4;
-  border-radius: 5%;
+  border-radius: 0.5rem;
   padding: 10px 0;
 }
 
 .todo-list-container h2 {
   margin: 10px 0px;
   text-align: center;
-  font-size: 20px;
-  font-weight: 500;
-  color: rgb(19, 19, 19);
+  font-size: 22px;
+  font-weight: 700;
+  color: #447C5D;
 }
 
 .todo-list {
@@ -243,13 +266,14 @@ li.separator {
   font-weight: 14px; */
 /* } */
 
-.task-input-row button {
+.task-input-row .add-task-btn {
   font-size: 18px;
   border: none;
   outline: none;
   padding: 5px 25px;
   margin: 10px 10px 10px 0px;
-  background-color: rgb(148, 231, 231);
+  color: white;
+  background-color: #447C5D;
   font-size: 18px;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -295,10 +319,10 @@ li.separator {
   padding: 10px 10px;
   margin: auto;
   margin-bottom: 10px;
-  outline: 2px #eed202 solid;
+  /* outline: 2px #eed202 solid; */
   background-color: rgba(0, 0, 0, 0.5);
   letter-spacing: 0.07rem;
-  border-radius: 2%; 
+  border-radius: 0.5rem; 
 }
 
 .todo-list ul li span {
@@ -316,4 +340,8 @@ li.separator {
 
 .todo-list ul li span:hover {
   background-color: #edeef0;
+}
+
+.tasks-display {
+  margin-bottom: 10px;
 }
