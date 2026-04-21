@@ -18,8 +18,8 @@
     --off-black: #1F1F1F;
     --focus-color: #e6308a;
     --focus-color2: #FFCB05;
-    --checked-icon: url(../assets/images/grey-checkbox-checked-svgrepo-com.svg);
-    --unchecked-icon: url(../assets/images/grey-checkbox-unchecked-svgrepo-com.svg);
+    --checked-icon: url(../assets/images/flora-checked-checkbox-svgrepo-com.svg);
+    --unchecked-icon: url(../assets/images/checkmarks/flora-unchecked.svg);
 }
 
 [data-theme='mocha-theme'] {
@@ -39,6 +39,8 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #E2413C;
+    --checked-icon: url(../assets/images/checkmarks/mocha-checked.svg);
+    --unchecked-icon: url(../assets/images/checkmarks/mocha-unchecked.svg);
 }
 
 [data-theme='nebula-theme'] {
@@ -58,6 +60,8 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #D94AEC;
+    --checked-icon: url(../assets/images/checkmarks/nebula-checked.svg);
+    --unchecked-icon: url(../assets/images/checkmarks/nebula-unchecked.svg);
 }
 
 [data-theme='aqua-theme'] {
@@ -77,6 +81,8 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #31abbb;
+    --checked-icon: url(../assets/images/checkmarks/aqua-checked.svg);
+    --unchecked-icon: url(../assets/images/checkmarks/aqua-unchecked.svg);
 }
 
 /* regular */

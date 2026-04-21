@@ -37,6 +37,7 @@ closeSettingsModalBtn.addEventListener("click", () => {
 const audioToggleBtn = document.getElementById('audio-toggle-btn');
 const audioContainer = document.getElementById('audio-player-container');
 const alertSound = document.getElementById('timer-sound');
+const audioDescription = document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p");
 
 const themeSounds = {
     'flora-theme': 'assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
@@ -59,6 +60,7 @@ const rootElement = document.documentElement;
                 rootElement.setAttribute('data-theme', selectedTheme);
             }
             console.log("Active Theme:", selectedTheme);
+            audioDescription.textContent = "Audio is currently OFF";
  
             if (selectedTheme == "flora-theme") {
                 todoHeading.textContent = "🌿 🌸°•∘To Do List ∘•°🌸🌿";
@@ -86,7 +88,6 @@ audioToggleBtn.addEventListener('click', () => {
     const audioIsOff = audioToggleBtn.textContent === "Stop Audio";
 
     if (!audioIsOff) {
-        document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p").textContent = "Audio is currently ON";
         audioToggleBtn.textContent = "Stop Audio";
         audioToggleBtn.classList.add('audio-active');
         audioContainer.style.display = "flex";
@@ -98,11 +99,28 @@ audioToggleBtn.addEventListener('click', () => {
             alertSound.src = trackPath;
             alertSound.load();
             alertSound.play();
+            switch (currentTheme) {
+                case "flora-theme":
+                     audioDescription.textContent = "Audio by Viacheslav Starostin";
+                    break;
+                case "mocha-theme":
+                    audioDescription.textContent = "Audio by Kaveesha Senanayake";
+                    break;
+                case "nebula-theme":
+                    audioDescription.textContent = "Audio by Denis Pavlov";
+                    break;
+                case "aqua-theme":
+                    audioDescription.textContent = "Audio by Samuel F. Johanns";
+                    break;
+                default:
+                    audioDescription.textContent = "Audio is currently ON"
+                    // Code to run if no cases match
+                }
         }
 
     } else {
         audioToggleBtn.textContent = "Play Audio";
-        document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p").textContent = "Audio is currently OFF";
+        audioDescription.textContent = "Audio is currently OFF";
         audioContainer.style.display = "none";
         alertSound.pause();
         alertSound.currentTime = 0;
