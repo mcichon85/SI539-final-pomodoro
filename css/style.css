@@ -438,6 +438,7 @@ li.separator {
   padding: 0;
   position: absolute;
   width: 1px;
+  color: var(--off-black);
 }
 
 .todo-list ul li {
@@ -537,7 +538,7 @@ li.separator {
   padding: 1rem 1rem;
 }
 
-.help-modal-content h1, .settings-modal-content h1 {
+.help-modal-content h2, .settings-modal-content h2 {
   font-size: 1.25rem;
   font-weight: 700;
   text-align: center;
@@ -630,6 +631,19 @@ button {
   bottom: 150px;
 }
 
+#audio-player-container {
+  margin-top: 15px;
+  padding: 15px 10px;
+  border-radius: 8px;
+  outline: var(--off-black) 2px solid;
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
 .close-modal {
   transform: translate(10px, -20px);
   padding: 0.5rem 0.7rem;
@@ -649,11 +663,17 @@ button {
   z-index: 1;
 }
 
-.settings-modal-content h2 {
+.settings-modal-content {
   margin-top: 20px;
   margin-bottom: 15px;
   font-size: 18px;
   text-align: left;
+  font-weight: 600;
+}
+
+.settings-modal-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .settings-switch-themes{
@@ -858,8 +878,14 @@ button {
     font-size: 1.25rem;
   }
 
+  .settings-switch-themes label{
+  gap: 3px;
+  padding: 5px;
+  border-radius: 0.5rem;
+}
+
   .settings-switch-themes label img{
-  width: 60%;
+  width: 50%;
 }
 
 .help-modal, .settings-modal {
@@ -897,7 +923,11 @@ button {
     width: 55%;
   }
 
+  .settings-modal {
+    width: 40%;
+  }
+
   .settings-switch-themes label img{
-  width: 40%;
+  width: 45%;
 }
 }

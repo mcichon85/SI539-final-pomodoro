@@ -38,7 +38,6 @@ closeSettingsModalBtn.addEventListener("click", () => {
 const themeRadios = document.querySelectorAll('.settings-switch-themes input[type="radio"]');
 const rootElement = document.documentElement; 
 
-    // 2. THEME SWITCHING LOGIC
     themeRadios.forEach(radio => {
         radio.addEventListener('click', () => {
             const selectedTheme = radio.id; // e.g., 'mocha-theme'
@@ -66,3 +65,40 @@ const rootElement = document.documentElement;
             // localStorage.setItem('pomodoro-theme', radio.id);
         });
     });
+
+
+const audioToggleBtn = document.getElementById('audio-toggle-btn');
+const audioContainer = document.getElementById('audio-player-container');
+const alertSound = document.getElementById('timer-sound');
+
+const themeSounds = {
+    'flora-theme': '../assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
+    'mocha-theme': '../assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
+    'aqua-theme': '../assets/audios/aqua_samuelfjohanns-atmosphere-of-atlantis-246389.mp3',
+    'nebula-theme': '../assets/audios/nebula_denis-pavlov-music-cosmos-galaxy-stars-universe-milky-way-planet-ambient-music-208619.mp3'
+};
+
+audioToggleBtn.addEventListener('click', () => {
+    const isTurningOn = audioToggleBtn.textContent === "Off";
+
+    if (isTurningOn) {
+        audioToggleBtn.textContent = "On";
+        audioToggleBtn.classList.add('audio-active');
+        audioContainer.style.display = "flex";
+
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'flora-theme';
+        const trackPath = themeSounds[currentTheme];
+
+        if (trackPath) {
+            alertSound.src = trackPath;
+            alertSound.load();
+        }
+
+    } else {
+        audioToggleBtn.textContent = "Off";
+        // audioToggleBtn.style.display = "none";
+        audioContainer.classList.add('hidden');
+        alertSound.pause();
+        alertSound.currentTime = 0;
+    }
+})

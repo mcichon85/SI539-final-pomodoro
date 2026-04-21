@@ -15,7 +15,8 @@
     <!-- Font Poppins imported from Adobe -->
      <link rel="stylesheet" href="https://use.typekit.net/rsw1cij.css">
      <!-- Digital font rel="preload" -->
-     <link rel="preconnect" href="assets/fonts/transfonter.org-20260415-193529/DS-Digital.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+     <!-- <link rel="preload" href="assets/fonts/transfonter.org-20260415-193529/DS-Digital.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+     <link href="assets/fonts/transfonter.org-20260415-193529/DS-Digital.woff2" type="font/woff2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/html5reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>539 Pomodoro Timer</title>
@@ -55,7 +56,7 @@
     <!-- I used Google's Gemini to generate the help modal content with the prompt: "Could you write me a short blurb that would be shown in the "help" modal of a pomodoro timer webpage?"-->
     <section class="help-modal">
         <div class="help-modal-content">
-            <h1>Welcome to your <span>Pomodoro Timer!</span></h1>
+            <h2>Welcome to your <span>Pomodoro Timer!</span></h2>
                 <div class="help-modal-p">
                     <p> This tool is designed to boost your focus and prevent burnout using a simple, proven rhythm.</p>
                     <p><strong>Focus (25 minutes)</strong>: Choose a task and work until the timer hits zero.</p>
@@ -71,28 +72,33 @@
 
     <section class="settings-modal">
         <div class="settings-modal-content">
-            <h1>Adjust Your Settings</h1>
-            <h2>Pick a theme</h2>
+            <h2>Adjust Your Settings</h2>
+            <h3>Pick a theme</h3>
             <div class="settings-switch-themes">
-                <input type="radio" id="flora-theme" name="theme-choice"/>
+                <input type="radio" id="flora-theme" name="theme-choice">
+                <!-- Music by <a href="https://pixabay.com/users/starostin-46826676/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=258633">Viacheslav Starostin</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=258633">Pixabay</a> -->
                 <label for="flora-theme">
                     <img src="assets/images/Flora-theme-thumbnail.png" alt="Thumbnail image for the Flora theme of dark greens and pinks.">
                     <br>Flora
                 </label>
 
-                <input type="radio" id="nebula-theme" name="theme-choice"/>
+                <input type="radio" id="nebula-theme" name="theme-choice">
+                <!-- Music by <a href="https://pixabay.com/users/denis-pavlov-music-35636692/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=208619">Denis Pavlov</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=208619">Pixabay</a> -->
                 <label for="nebula-theme">
                     <img src="assets/images/Nebula-theme-thumbnail.png" alt="Thumbnail image for the Nebula theme of purples and blues.">
                     <br>Nebula
                 </label>
 
-                <input type="radio" id="mocha-theme" name="theme-choice"/>
+                <input type="radio" id="mocha-theme" name="theme-choice">
+                <!-- Music by <a href="https://pixabay.com/users/lofidreams-25132446/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=385853">kaveesha Senanayake</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=385853">Pixabay</a> -->
                 <label for="mocha-theme">
                     <img src="assets/images/Mocha-theme-thumbnail.png" alt="Thumbnail image for the Mocha theme of browns, creams, and maroons.">
                     <br>Mocha
                 </label>
 
-                <input type="radio" id="aqua-theme" name="theme-choice"/>
+                <input type="radio" id="aqua-theme" name="theme-choice">
+                <!-- Music by <a href="https://pixabay.com/users/matthewmikemusic-25386219/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=159859">Mike Cole</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=159859">Pixabay</a> -->
+                 <!-- Music by <a href="https://pixabay.com/users/samuelfjohanns-1207793/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=246389">Samuel F. Johanns</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=246389">Pixabay</a> -->
                 <label for="aqua-theme">
                     <img src="assets/images/Aqua-theme-thumbnail.png" alt="Thumbnail image for the Aqua theme of dark blues and light blues.">
                     <br>Aqua
@@ -101,9 +107,12 @@
 
             <div class="settings-audio">
                 <span>
-                    <h2>Audio is currently OFF</h2>
-                    <button class="button-80">Play Audio</button>
+                    <p>Audio is currently OFF</p>
+                    <button class="button-80" id="audio-toggle-btn">Play Audio</button>
                 </span>
+                <div id="audio-player-container" class="hidden">
+                    <audio id="timer-sound" controls preload="auto"></audio>
+                </div>
             </div>
 
             <div class="modal-btn-area">
@@ -139,7 +148,7 @@
                 <fieldset class="task-input-row">
                     <legend class="visually-hidden">Task Entry</legend>
                     <label for="add-tasks" class="visually-hidden">Add a task to your todo list.</label>
-                    <input class="task-input" id="add-tasks" placeholder="My next task is...                                "></input>
+                    <input class="task-input" id="add-tasks" placeholder="My next task is...                                ">
                     <button class="button-80 add-task-btn">Add</button>
                 </fieldset>
                 <ul id="tasks-display">
@@ -147,8 +156,6 @@
                 </ul>
                 </div>
             </div>
-
-        </div>
 
     </main>
     <script src="js/pomodoro.js"></script>
