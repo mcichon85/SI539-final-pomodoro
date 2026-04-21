@@ -430,14 +430,17 @@ li.separator {
 
 /* From W3C Labeling Controls https://www.w3.org/WAI/tutorials/forms/labels/#hiding-the-label-element */
 .visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* For older browsers */
+  clip-path: inset(50%);  /* Modern approach */
+  white-space: nowrap;
+  border: 0;
+  background-color: white;
   color: var(--off-black);
 }
 
