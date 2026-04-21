@@ -1,0 +1,357 @@
+
+
+/* :root, 
+[data-selected-theme="theme-plants"] {
+     --color-background: #; 
+} */
+
+/* regular */
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('../assets/fonts/transfonter.org-20260415-193529/DS-Digital.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* bold */
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('../assets/fonts/transfonter.org-20260415-193529/DS-Digital-Bold.woff2') format('woff2');
+    font-weight: bold; /* or 700 */
+    font-style: normal;
+}
+
+/* I was running into an issue where the bg image would not cover the full screen. I prompted UM-GPT to help with that and it suggested
+this html, body css code. */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFFFFF;
+    background-color: #00274C;
+    background-image: url("../assets/images/Flora_background_image.png");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 75% 50%;
+    box-sizing: border-box;
+}
+
+.skip-to-main a {
+     background-color: #FFCB05;
+     color: #00274C;
+     font-weight: 500;
+     top: -65px;
+     position: absolute;
+     padding: 10px;
+     border-radius: 5px;
+}
+
+.skip-to-main a:focus {
+     top: 25px;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: none;
+     box-shadow: 0px 2px 0 0 white; 
+    /* border-bottom: 2px solid white;
+    border-bottom-offset: 2px; */
+    /* border-radius: 0 0 15px 15px; */
+}
+
+.menu-bar h1 {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* two lines when in mobile mode - switch to inline when in tablet/desktop */
+.menu-bar span {
+    display: block;
+    padding-top: 5px;
+  }
+
+/* .mobile-theme-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-theme-buttons button {
+    outline: 2px pink solid;
+    padding: 5px 15px;
+    margin: 20px 10px;
+    border-radius: 5%;
+} */
+
+.timer-container {
+    margin: auto;
+    outline: white 2px solid;
+    background-color: rgb(35, 62, 47, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    border-radius: 0.5rem;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    width: 92%;
+}
+
+/* buttons: 3 types, settings: play/pause */
+.timer-buttons, .timer-settings { 
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    justify-content: center;
+    align-items: start;
+}
+.timer-buttons button{
+    margin: 0px 8px;
+    padding: 10px 13px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.timer-settings { 
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: start;
+}
+
+.timer-settings button{
+    margin-top: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding: 5px 0px;
+    width: 50%;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    color: #447C5D;
+}
+
+.timer-settings button:hover, .timer-buttons button:hover {
+  box-shadow: 5px 5px 7px rgb(35, 62, 47, 0.9);
+}
+
+
+/* Video for coding the countdown timer: https://www.youtube.com/watch?v=5_klk8r-N6g */
+
+.timer-countdown, .timer-buttons {
+    /* outline: blue solid 2px; */
+    margin: 10px;
+}
+
+.timer-buttons {
+  border-bottom: 2px white solid;
+}
+
+.timer-countdown ul {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.timer-countdown ul li {
+    list-style: none;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1;
+    /* font: "Pixelify Sans", sans-serif; */
+}
+
+.timer-countdown ul li span {
+    display: block;
+    font-size: 9rem;
+    font-family: 'DS-Digital', monospace;
+    font-weight: 600;
+    font-style: normal;
+}
+
+li.separator {
+    transform: translateY(-18px);
+    margin: 0 10px;
+    line-height: 1;
+} 
+
+/* to do list*/
+.todo-list-container {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh;  */
+  justify-content: center;
+  align-items: center;
+  outline: white 2px solid;
+  background-color: #F5F5F4;
+  border-radius: 0.5rem;
+  padding: 16px 0px;
+}
+
+.todo-list-container h2 {
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #447C5D;
+}
+
+.todo-list {
+  width: 95%;
+}
+
+.task-input-row {
+  outline: #a4a5a5 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edeef0;
+  border-radius: .5rem;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 80%;
+}
+
+/* From Uiverse.io by alexruix */ 
+.task-input {
+  width: 100%;
+  height: 40px;
+  background-color: #edeef0;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.task-input:hover, .task-input:focus{
+  outline: none;
+  text-decoration: underline;
+  text-decoration-color: #05060f;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  /* border-color: #05060f; */
+}
+
+/* .task-input:hover .task-input:focus {
+  color: #05060fc2;
+} */
+
+/* .task-input { */
+  /* @apply bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body */
+  /* flex: 1;
+  border: none;
+  background-color: #b4b1b1;
+  padding: 4px;
+  font-weight: 14px; */
+/* } */
+
+.task-input-row .add-task-btn {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 5px 25px;
+  margin: 10px 10px 10px 0px;
+  color: white;
+  background-color: #447C5D;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.todo-list ul li {
+  font-size: 18px;
+  color: black;
+  list-style: none;
+  /* padding: 12px 8px 12px 50px; */
+  padding: 12px 48px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.todo-list ul li::before {
+  content: '';
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(../assets/images/grey-checkbox-unchecked-svgrepo-com.svg);
+  background-size: cover;
+  background-position: center;
+  top: 5px;
+  left: 8px;
+}
+
+.todo-list ul li.checked-task {
+  color: #555;
+  text-decoration: line-through;
+}
+
+.todo-list ul li.checked-task::before {
+   background-image: url(../assets/images/grey-checkbox-checked-svgrepo-com.svg);
+}
+
+#todo-list-alert {
+  display: none;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  /* outline: 2px #eed202 solid; */
+  background-color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.07rem;
+  border-radius: 0.5rem; 
+}
+
+.todo-list ul li span {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%
+}
+
+.todo-list ul li span:hover {
+  background-color: #edeef0;
+}
+
+#tasks-display {
+  margin-bottom: 10px;
+  flex: 1;
+  /* overflow-y: auto;
+  margin-top: 12px; */
+  max-height: 50vh;          /* adjust; this scales by screen size */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}

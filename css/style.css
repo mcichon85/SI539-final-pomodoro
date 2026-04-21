@@ -1,9 +1,83 @@
+/* 4 themes - flora is the root theme */
 
+:root {
+    --bg-image: url("../assets/images/Flora_background_image.png");
+    --heading: rgba(30, 62, 48, 0.9);
+    --timer-container-bg: rgb(230, 241, 238, 0.9);
+    --timer-container-lines: #28513F;
+    --timer-font: #1F1F1F;
+    --timer-btn-bg: #28513F;
+    --timer-btn-font: #F6FFFD;
+    --todo-heading: #28513F;
+    --todo-container: #F6FFFD;
+    --todo-bg: #F6FFFD;
+    --add-btn: #28513F;
+    --todo-input: #F5F5F4;
+    --todo-input-outline: #1F1F1F;
+    --off-white: #F5F5F4;
+    --off-black: #1F1F1F;
+    --focus-color: #e6308a;
+    --focus-color2: #FFCB05;
+    --checked-icon: url(../assets/images/grey-checkbox-checked-svgrepo-com.svg);
+    --unchecked-icon: url(../assets/images/grey-checkbox-unchecked-svgrepo-com.svg);
+}
 
-/* :root, 
-[data-selected-theme="theme-plants"] {
-     --color-background: #; 
-} */
+[data-theme='mocha-theme'] {
+    --bg-image: url("../assets/images/Mocha_background_image.png");
+    --heading: rgb(74, 48, 38, 0.9);
+    --timer-container-bg: rgb(247, 241, 238, 0.8);
+    --timer-container-lines: #9A6551;
+    --timer-font: #1F1F1F;
+    --timer-btn-bg: #704433;
+    --timer-btn-font: #F5F5F4;
+    --todo-heading: #704433;
+    --todo-container: #F7F1EE;
+    --todo-bg: #F7F1EE;
+    --add-btn: #704433;
+    --todo-input: #F5F5F4;
+    --todo-input-outline: #1F1F1F;
+    --off-white: #F5F5F4;
+    --off-black: #1F1F1F;
+    --focus-color: #E2413C;
+}
+
+[data-theme='nebula-theme'] {
+    --bg-image: url("../assets/images/Nebula_background_image.png");
+    --heading: rgb(76, 41, 97, 0.9);
+    --timer-container-bg: rgb(49, 26, 62, 0.75);
+    --timer-container-lines: #F5F5F4;
+    --timer-font: #F5F5F4;
+    --timer-btn-bg: #F5F5F4;
+    --timer-btn-font: #4C2961;
+    --todo-heading: #4C2961;
+    --todo-container: #F5F5F4;
+    --todo-bg: #F5F5F4;
+    --add-btn: #4C2961;
+    --todo-input: #E8E8E8;
+    --todo-input-outline: #1F1F1F;
+    --off-white: #F5F5F4;
+    --off-black: #1F1F1F;
+    --focus-color: #D94AEC;
+}
+
+[data-theme='aqua-theme'] {
+    --bg-image: url("../assets/images/Nebula_background_image.png");
+    --heading: rgb(2, 20, 61, 0.9);
+    --timer-container-bg: rgb(16, 27, 78, 0.8);
+    --timer-container-lines: #F5F5F4;
+    --timer-font: #F5F5F4;
+    --timer-btn-bg: #F5F5F4;
+    --timer-btn-font: #003780;
+    --todo-heading: #003780;
+    --todo-container: #F5F5F4;
+    --todo-bg: #F5F5F4;
+    --add-btn: #003780;
+    --todo-input: #E8E8E8;
+    --todo-input-outline: #1F1F1F;
+    --off-white: #F5F5F4;
+    --off-black: #1F1F1F;
+    --focus-color: #31abbb;
+}
 
 /* regular */
 @font-face {
@@ -24,18 +98,23 @@
 
 /* I was running into an issue where the bg image would not cover the full screen. I prompted UM-GPT to help with that and it suggested
 this html, body css code. */
+
+/* mobile size (testing at iPhone 12 sizing */
 html, body {
   height: 100%;
   margin: 0;
 }
 
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
 body {
-    font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: #FFFFFF;
-    background-color: #00274C;
-    background-image: url("../assets/images/Flora_background_image.png");
+    background-color: var(--heading);
+    background-image: var(--bg-image);
     background-repeat: no-repeat;
     min-height: 100vh;
     background-attachment: fixed;
@@ -45,8 +124,8 @@ body {
 }
 
 .skip-to-main a {
-     background-color: #FFCB05;
-     color: #00274C;
+     background-color: white;
+     color: var(--off-black);
      font-weight: 500;
      top: -65px;
      position: absolute;
@@ -56,19 +135,23 @@ body {
 
 .skip-to-main a:focus {
      top: 25px;
+     left: 10px;
 }
 
 .menu-bar {
+    box-shadow: 0px 2px 0 0 var(--off-white); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: none;
-     box-shadow: 0px 2px 0 0 white; 
-    /* border-bottom: 2px solid white;
-    border-bottom-offset: 2px; */
-    /* border-radius: 0 0 15px 15px; */
+    background-color: var(--heading);
+    padding: 15px 20px; 
+    margin: 0; 
+    border-bottom: 2px solid var(--off-white);
+}
+
+.menu-bar svg:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
 }
 
 .menu-bar h1 {
@@ -83,25 +166,10 @@ body {
     padding-top: 5px;
   }
 
-/* .mobile-theme-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.mobile-theme-buttons button {
-    outline: 2px pink solid;
-    padding: 5px 15px;
-    margin: 20px 10px;
-    border-radius: 5%;
-} */
-
 .timer-container {
     margin: auto;
-    outline: white 2px solid;
-    background-color: rgb(35, 62, 47, 0.8);
-    /* background-color: rgba(0, 0, 0, 0.6); */
+    outline: var(--timer-container-lines) 2px solid;
+    background-color: var(--timer-container-bg);
     border-radius: 0.5rem;
     margin-top: 40px;
     margin-bottom: 30px;
@@ -117,6 +185,97 @@ body {
     justify-content: center;
     align-items: start;
 }
+
+#play-pause-btn {
+    background-color: var(--timer-btn-bg);
+    color: var(--timer-btn-font);
+    padding: 0.8rem 1.4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+#close-help-modal, 
+#close-settings-modal {
+    background-color: var(--add-btn);
+    color: var(--timer-btn-font);
+    padding: 0.8rem 1.4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+#play-pause-btn:hover,
+#close-help-modal:hover, 
+#close-settings-modal:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
+    
+}
+
+/* CSS from https://getcssscan.com/css-buttons-examples -- Button 80 by Loom*/
+.button-80 {
+  background-color: var(--timer-btn-bg);
+  backface-visibility: hidden;
+  border-radius: .375rem;
+  box-sizing: border-box;
+  color: var(--timer-btn-font);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  padding: .6rem 1rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-80:first-child {
+  padding: .6rem 1.5rem;
+}
+
+.button-80:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.button-80:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.button-80:focus {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.button-80:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.button-80:focus:not(:focus-visible) {
+  outline: 2px solid var(--focus-color);
+}
+
+.button-80:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.button-80:not(:disabled):active {
+  transform: translateY(.125rem);
+}
+/* ----------------------------------------------- */
+
 .timer-buttons button{
     margin: 0px 8px;
     padding: 10px 13px;
@@ -145,23 +304,21 @@ body {
     font-size: 20px;
     font-weight: 600;
     border-radius: 0.5rem;
-    color: #447C5D;
+    color: var(--timer-btn-bg);
 }
 
 .timer-settings button:hover, .timer-buttons button:hover {
-  box-shadow: 5px 5px 7px rgb(35, 62, 47, 0.9);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Video for coding the countdown timer: https://www.youtube.com/watch?v=5_klk8r-N6g */
 
 .timer-countdown, .timer-buttons {
-    /* outline: blue solid 2px; */
     margin: 10px;
 }
 
 .timer-buttons {
-  border-bottom: 2px white solid;
+  border-bottom: 2px var(--timer-container-lines) solid;
 }
 
 .timer-countdown ul {
@@ -172,16 +329,16 @@ body {
 }
 
 .timer-countdown ul li {
+    color: var(--timer-font);
     list-style: none;
     font-size: 1.1rem;
     text-align: center;
     line-height: 1;
-    /* font: "Pixelify Sans", sans-serif; */
 }
 
 .timer-countdown ul li span {
     display: block;
-    font-size: 9rem;
+    font-size: 7.5rem;
     font-family: 'DS-Digital', monospace;
     font-weight: 600;
     font-style: normal;
@@ -200,22 +357,20 @@ li.separator {
   margin-bottom: 30px;
   width: 92%;
   display: flex;
-  flex-direction: column;
-  /* height: 100vh;  */
   justify-content: center;
   align-items: center;
-  outline: white 2px solid;
-  background-color: #F5F5F4;
+  background-color: var(--todo-container);
   border-radius: 0.5rem;
-  padding: 16px 0px;
+  padding: 10px 0;
 }
 
 .todo-list-container h2 {
-  margin: 10px 0px;
+  margin-top: 15px;
+  margin-bottom: 25px;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  color: #447C5D;
+  color: var(--todo-heading);
 }
 
 .todo-list {
@@ -223,11 +378,11 @@ li.separator {
 }
 
 .task-input-row {
-  outline: #a4a5a5 2px solid;
+  outline: var(--todo-input-outline) 2px solid;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #edeef0;
+  background-color: var(--todo-input);
   border-radius: .5rem;
   margin-bottom: 25px;
   width: 100%;
@@ -238,7 +393,7 @@ li.separator {
 .task-input {
   width: 100%;
   height: 40px;
-  background-color: #edeef0;
+  background-color: var(--todo-input);;
   border-radius: .5rem;
   padding: 0 1rem;
   border: 2px solid transparent;
@@ -249,24 +404,11 @@ li.separator {
 .task-input:hover, .task-input:focus{
   outline: none;
   text-decoration: underline;
-  text-decoration-color: #05060f;
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--focus-color); 
+  text-decoration-thickness: 4rem;
   text-underline-offset: 4px;
-  /* border-color: #05060f; */
+  /* outline: 1px solid var(--focus-color); */
 }
-
-/* .task-input:hover .task-input:focus {
-  color: #05060fc2;
-} */
-
-/* .task-input { */
-  /* @apply bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body */
-  /* flex: 1;
-  border: none;
-  background-color: #b4b1b1;
-  padding: 4px;
-  font-weight: 14px; */
-/* } */
 
 .task-input-row .add-task-btn {
   font-size: 18px;
@@ -274,19 +416,35 @@ li.separator {
   outline: none;
   padding: 5px 25px;
   margin: 10px 10px 10px 0px;
-  color: white;
-  background-color: #447C5D;
+  color: var(--off-white);
+  background-color: var(--add-btn);
   font-size: 18px;
   cursor: pointer;
   border-radius: 0.5rem;
 }
 
+.add-task-btn:focus, #play-pause-btn:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+}
+
+/* From W3C Labeling Controls https://www.w3.org/WAI/tutorials/forms/labels/#hiding-the-label-element */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .todo-list ul li {
   font-size: 18px;
-  color: black;
+  color: var(--off-black);
   list-style: none;
-  /* padding: 12px 8px 12px 50px; */
-  padding: 12px 48px 12px 50px;
+  padding: 12px 8px 12px 50px;
   user-select: none;
   cursor: pointer;
   position: relative;
@@ -298,7 +456,7 @@ li.separator {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  background-image: url(../assets/images/grey-checkbox-unchecked-svgrepo-com.svg);
+  background-image: var(--unchecked-icon);
   background-size: cover;
   background-position: center;
   top: 5px;
@@ -306,12 +464,12 @@ li.separator {
 }
 
 .todo-list ul li.checked-task {
-  color: #555;
+  color: var(--off-black);
   text-decoration: line-through;
 }
 
 .todo-list ul li.checked-task::before {
-   background-image: url(../assets/images/grey-checkbox-checked-svgrepo-com.svg);
+   background-image: var(--checked-icon);
 }
 
 #todo-list-alert {
@@ -322,10 +480,10 @@ li.separator {
   padding: 10px 10px;
   margin: auto;
   margin-bottom: 10px;
-  /* outline: 2px #eed202 solid; */
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--heading);
+  color: var(--off-white);
   letter-spacing: 0.07rem;
-  border-radius: 0.5rem; 
+  border-radius: 0.5rem;
 }
 
 .todo-list ul li span {
@@ -345,13 +503,401 @@ li.separator {
   background-color: #edeef0;
 }
 
-#tasks-display {
+.tasks-display {
   margin-bottom: 10px;
-  flex: 1;
-  /* overflow-y: auto;
-  margin-top: 12px; */
-  max-height: 50vh;          /* adjust; this scales by screen size */
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+}
+
+/* help and settings modals */
+.help-modal, .settings-modal {
+  z-index: 2;
+  color: var(--off-black);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 75%;
+  padding: 1.3rem;
+  min-height: 25%;
+  position: absolute;
+  background-color: var(--todo-container);
+  border: 1px solid var(--todo-heading);
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.help-modal-content {
+  padding: 1rem 1rem;
+}
+
+.help-modal-content h1, .settings-modal-content h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px; 
+  border-bottom: 2px var(--off-black) solid;
+}
+
+.help-modal-p {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.help-modal-p p{
+  margin: 10px 0px;
+  font-size: 18px;
+}
+
+.modal input {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--todo-heading);
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  margin: 0.4rem 0 0.2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  background-color: var(--timer-btn-bg);
+  color: var(--timer-btn-font);
+}
+
+/* open modal buttons */
+#open-help-modal, #open-settings-modal {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: var(--off-white);
+  cursor: pointer;
+}
+
+#open-help-modal svg, #open-settings-modal svg{
+  display: block;
+}
+
+#open-help-modal:focus, #open-settings-modal:focus{
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* close modal buttons */
+#close-help-modal, #close-settings-modal{
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  background-color: var(--add-btn);
+  color: var(--off-white);
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1em;
+  justify-content: center;
+  width: 80%;
+}
+
+#close-help-modal:focus, #close-settings-modal:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+}
+
+.modal-btn-area {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 150px;
+}
+
+.close-modal {
+  transform: translate(10px, -20px);
+  padding: 0.5rem 0.7rem;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.settings-modal-content h2 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.settings-switch-themes{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  outline: 2px solid var(--off-black);
+  margin: 5px 0px;
+  border-radius: 0.5rem;
+}
+
+.settings-audio {
+  margin: 15px 0px;
+  border-radius: 0.5rem;
+}
+
+.settings-audio span {
+    display: flex;
+    /* This aligns them vertically in the center so the button doesn't look "sunk" */
+    align-items: center; 
+    /* This adds a gap between the text and the button */
+    gap: 15px; 
+    /* Optional: pushes them to the left or center */
+    justify-content: space-between; 
+}
+
+.settings-audio span button {
+  background-color: var(--off-black);
+  color: var(--off-white);
+}
+
+/* Accessible hide (instead of display:none) */
+.settings-switch-themes input[type="radio"]{
+  /* position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap; */
+  position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Theme "card" */
+.settings-switch-themes label{
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Thumbnail */
+.settings-switch-themes label img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Hover outline */
+.settings-switch-themes label:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle hint for hover */
+    transform: translateY(-2px);
+    border-color: #a4a5a5; /* Neutral hover border */
+}
+
+.settings-switch-themes input[type="radio"]:focus-visible + label {
+    outline: 4px dashed #666; /* High contrast neutral dash */
+    outline-offset: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Flora Selected */
+#flora-theme:checked + label {
+    border-color: var(--focus-color);
+    background-color: rgba(255, 203, 5, 0.1);
+}
+
+/* Nebula Selected */
+#nebula-theme:checked + label {
+    border-color: var(--focus-color);
+    background-color: rgba(255, 203, 5, 0.1);
+}
+
+/* Mocha Selected */
+#mocha-theme:checked + label {
+    border-color: var(--focus-color);
+    background-color: rgba(255, 203, 5, 0.1);
+}
+
+/* Aqua Selected */
+#aqua-theme:checked + label {
+   border-color: var(--focus-color);
+    background-color: rgba(255, 203, 5, 0.1);
+}
+
+/* Add a "Check" effect or scale to the active one */
+.settings-switch-themes input[type="radio"]:checked + label img {
+    box-shadow: 0 0 0 2px white, 0 0 0 5px var(--timer-btn-bg); /* Double ring effect */
+}
+
+/* tablet size */
+@media (min-width: 750px) {
+
+  .menu-bar span {
+    display: inline;
+    padding-top: 5px;
+  }
+
+  .menu-bar {
+    justify-content: center;
+  }
+
+  .menu-bar .middle-menu-items {
+    padding: 0px 100px;
+  }
+
+  .timer-container {
+    width: 75%;
+  }
+
+  .todo-list-container {
+    width: 75%;
+  }
+
+  .timer-buttons button {
+    font-size: 1.25rem;
+  }
+
+  .settings-switch-themes label img{
+  width: 75%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.help-modal, .settings-modal {
+  width: 55%;
+  padding: 1.5rem;
+  min-height: 25%;
+}
+
+.settings-modal-content {
+  padding: 0 2rem;
+}
+
+.settings-audio {
+  padding: 1rem 0;
+}
+
+.help-modal-content span {
+    display: inline;
+    padding-top: 5px;
+  }
+
+}
+
+/* desktop size */
+@media (min-width: 1100px) {
+
+  .menu-bar {
+    justify-content: center;
+  }
+
+  .menu-bar h1 {
+    font-size: 1.5rem;
+  }
+
+  .menu-bar svg {
+    width: 2rem;
+    height: auto;
+  }
+
+  .menu-bar .middle-menu-items {
+    padding: 0px 100px;
+  }
+
+  .timer-container {
+    width: 75%;
+  }
+
+  .todo-list-container {
+    width: 75%;
+  }
+
+  .timer-buttons button {
+    font-size: 1.25rem;
+  }
+
+  .settings-switch-themes label img{
+  width: 60%;
+}
+
+.help-modal, .settings-modal {
+  width: 55%;
+  padding: 1rem;
+  min-height: 25%;
+}
+
+.settings-modal-content {
+  padding: 0 2rem;
+}
+
+.settings-audio {
+  padding: 1rem 0;
+}
+
+.help-modal-content {
+  padding: 1rem 4rem;
+}
+
+}
+
+/* bigger desktop size */
+@media (min-width: 1400px) {
+  .menu-bar svg {
+    width: 1.5rem;
+    height: auto;
+  }
+
+   .timer-container {
+    width: 55%;
+  }
+
+  .todo-list-container {
+    width: 55%;
+  }
+
+  .settings-switch-themes label img{
+  width: 40%;
+}
 }

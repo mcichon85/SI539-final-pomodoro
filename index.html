@@ -28,51 +28,98 @@
 
       <div class="menu-bar">
         <div class="left-menu-items">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button id="open-help-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <title>Help</title>
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
-            <!-- <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 5V19M21 5V19M3 7.20608V16.7939C3 17.7996 3 18.3024 3.19886 18.5352C3.37141 18.7373 3.63025 18.8445 3.89512 18.8236C4.20038 18.7996 4.55593 18.4441 5.26704 17.733L10.061 12.939C10.3897 12.6103 10.554 12.446 10.6156 12.2565C10.6697 12.0898 10.6697 11.9102 10.6156 11.7435C10.554 11.554 10.3897 11.3897 10.061 11.061L5.26704 6.26704C4.55593 5.55593 4.20038 5.20038 3.89512 5.17636C3.63025 5.15551 3.37141 5.26273 3.19886 5.46476C3 5.69759 3 6.20042 3 7.20608Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            <title>Play/Pause Animations</title>
-            </g></svg> -->
+            </button>
         </div>
         <div class="middle-menu-items">
             <h1>Study Station: <span>Pomodoro Timer</span></h1>
         </div>
         <div class="right-menu-items">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" viewBox="0 0 256 256"><path d="M230.64,25.36a32,32,0,0,0-45.26,0q-.21.21-.42.45L131.55,88.22,121,77.64a24,24,0,0,0-33.95,0l-76.69,76.7a8,8,0,0,0,0,11.31l80,80a8,8,0,0,0,11.31,0L178.36,169a24,24,0,0,0,0-33.95l-10.58-10.57L230.19,71c.15-.14.31-.28.45-.43A32,32,0,0,0,230.64,25.36ZM96,228.69,79.32,212l22.34-22.35a8,8,0,0,0-11.31-11.31L68,200.68,55.32,188l22.34-22.35a8,8,0,0,0-11.31-11.31L44,176.68,27.31,160l50.35-50.34,68.69,68.69Z"></path>
-            <title>Switch Theme</title>
-            </svg> -->
-
-            <svg class="mobile-setting-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <title>Settings</title>
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-            </svg>
+            <button id="open-settings-modal">
+                <svg class="mobile-setting-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Settings</title>
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </button>
         </div>
       </div>
-      <!-- <div class="mobile-theme-buttons">
-        <button class="theme-plants">Flora</button>
-        <button class="theme-nebula">Nebula</button>
-        <button class="theme-books">Mocha</button>
-        <button class="theme-books">Aqua</button>
-      </div> -->
     </header>
     <main>
-        <!-- <div id="settingsModal" class="display-none">
-            <h2>Settings</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, quidem, debitis error, at itaque saepe in ab qui
-            deserunt eveniet neque quibusdam voluptatem voluptates quo sequi recusandae odit facere non! Obcaecati, odio!</p>
-            <button id="close-modal-btn" class="btn">Close Modal</button>
-        </div> -->
-        
+    <!-- I used Google's Gemini to generate the help modal content with the prompt: "Could you write me a short blurb that would be shown in the "help" modal of a pomodoro timer webpage?"-->
+    <section class="help-modal">
+        <div class="help-modal-content">
+            <h1>Welcome to your <span>Pomodoro Timer!</span></h1>
+                <div class="help-modal-p">
+                    <p> This tool is designed to boost your focus and prevent burnout using a simple, proven rhythm.</p>
+                    <p><strong>Focus (25 minutes)</strong>: Choose a task and work until the timer hits zero.</p>
+                    <p><strong>Rest (5 minutes)</strong>: Take a quick breather to stretch or grab water.</p>
+                    <p><strong>Recharge (15 minutes)</strong>: After every four sessions, take a longer break to recharge.</p>
+                </div>
+        </div>
+
+         <div class="modal-btn-area">
+            <button id="close-help-modal">Got it!</button>
+         </div>
+    </section>
+
+    <section class="settings-modal">
+        <div class="settings-modal-content">
+            <h1>Adjust Your Settings</h1>
+            <h2>Pick a theme</h2>
+            <div class="settings-switch-themes">
+                <input type="radio" id="flora-theme" name="theme-choice"/>
+                <label for="flora-theme">
+                    <img src="assets/images/Flora-theme-thumbnail.png" alt="Thumbnail image for the Flora theme of dark greens and pinks.">
+                    <br>Flora
+                </label>
+
+                <input type="radio" id="nebula-theme" name="theme-choice"/>
+                <label for="nebula-theme">
+                    <img src="assets/images/Nebula-theme-thumbnail.png" alt="Thumbnail image for the Nebula theme of purples and blues.">
+                    <br>Nebula
+                </label>
+
+                <input type="radio" id="mocha-theme" name="theme-choice"/>
+                <label for="mocha-theme">
+                    <img src="assets/images/Mocha-theme-thumbnail.png" alt="Thumbnail image for the Mocha theme of browns, creams, and maroons.">
+                    <br>Mocha
+                </label>
+
+                <input type="radio" id="aqua-theme" name="theme-choice"/>
+                <label for="aqua-theme">
+                    <img src="assets/images/Aqua-theme-thumbnail.png" alt="Thumbnail image for the Aqua theme of dark blues and light blues.">
+                    <br>Aqua
+                </label>
+            </div>
+
+            <div class="settings-audio">
+                <span>
+                    <h2>Audio is currently OFF</h2>
+                    <button class="button-80">Play Audio</button>
+                </span>
+            </div>
+
+            <div class="modal-btn-area">
+                <button id="close-settings-modal">Close</button>
+            </div>
+        </div>
+    </section>
+
+        <div class="overlay"></div>
+
         <div class="timer-container">
             <div class="timer-buttons">
-                <button class="pomodoro-timer">Pomodoro</button>
-                <button class="shortbreak-timer">Short Break</button>
-                <button class="longbreak-timer">Long Break</button>
+                <button class="pomodoro-timer button-80">25:00</button>
+                <button class="shortbreak-timer button-80">5:00</button>
+                <button class="longbreak-timer button-80">15:00</button>
+
             </div>
             <div class="timer-countdown">
                 <ul>
@@ -87,13 +134,16 @@
         </div>
         <div class="todo-list-container">
             <div class="todo-list">
-                <h2>🌿 To Do List 🌿</h2>
+                <h2>🌿 🌸°•∘To Do List ∘•°🌸🌿</h2>
                 <p id="todo-list-alert">Type a task in the text box below!</p>
-                <div class="task-input-row">
-                    <input class="task-input" placeholder="My next task is..."></input>
-                    <button class="add-task-btn">Add</button>
-                </div>
-                <ul id="tasks-display" tabindex="0">
+                <fieldset class="task-input-row">
+                    <legend class="visually-hidden">Task Entry</legend>
+                    <label for="add-tasks" class="visually-hidden">Add a task to your todo list.</label>
+                    <input class="task-input" id="add-tasks" placeholder="My next task is...                                "></input>
+                    <button class="button-80 add-task-btn">Add</button>
+                </fieldset>
+                <ul id="tasks-display">
+                    <!-- <li class="checked-task">Task 1</li> -->
                 </ul>
                 </div>
             </div>
@@ -102,7 +152,8 @@
 
     </main>
     <script src="js/pomodoro.js"></script>
-     <script src="js/todo-list.js"></script>
+    <script src="js/todo-list.js"></script>
+    <script src="js/modals.js"></script>
 </body>
 
 </html>
