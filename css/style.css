@@ -639,12 +639,13 @@ button {
   padding: 15px 10px;
   border-radius: 8px;
   outline: var(--off-black) 2px solid;
-  display: flex;
+  /* display: flex; */
+  display: none;
   justify-content: center;
 }
 
-.hidden {
-  display: none;
+#audio-play-container audio {
+  outline: var(--header) 2px solid;
 }
 
 .close-modal {

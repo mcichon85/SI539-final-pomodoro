@@ -34,6 +34,17 @@ closeSettingsModalBtn.addEventListener("click", () => {
     settingsModal.style.display = "none";
 })
 
+const audioToggleBtn = document.getElementById('audio-toggle-btn');
+const audioContainer = document.getElementById('audio-player-container');
+const alertSound = document.getElementById('timer-sound');
+
+const themeSounds = {
+    'flora-theme': '../assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
+    'mocha-theme': '../assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
+    'aqua-theme': '../assets/audios/aqua_samuelfjohanns-atmosphere-of-atlantis-246389.mp3',
+    'nebula-theme': '../assets/audios/nebula_denis-pavlov-music-cosmos-galaxy-stars-universe-milky-way-planet-ambient-music-208619.mp3'
+};
+
 // switching themes in the settings modal
 const themeRadios = document.querySelectorAll('.settings-switch-themes input[type="radio"]');
 const rootElement = document.documentElement; 
@@ -60,29 +71,22 @@ const rootElement = document.documentElement;
             }
 
             console.log(`Theme switched to: ${selectedTheme}`);
-            
-            //saved the theme in local storage
-            // localStorage.setItem('pomodoro-theme', radio.id);
+
+            audioToggleBtn.textContent = "Play Audio";
+            audioContainer.style.display = "none";
+            alertSound.pause();
+            alertSound.currentTime = 0;
+            alertSound.src = "";
+
         });
     });
 
 
-const audioToggleBtn = document.getElementById('audio-toggle-btn');
-const audioContainer = document.getElementById('audio-player-container');
-const alertSound = document.getElementById('timer-sound');
-
-const themeSounds = {
-    'flora-theme': '../assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
-    'mocha-theme': '../assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
-    'aqua-theme': '../assets/audios/aqua_samuelfjohanns-atmosphere-of-atlantis-246389.mp3',
-    'nebula-theme': '../assets/audios/nebula_denis-pavlov-music-cosmos-galaxy-stars-universe-milky-way-planet-ambient-music-208619.mp3'
-};
-
 audioToggleBtn.addEventListener('click', () => {
-    const isTurningOn = audioToggleBtn.textContent === "Off";
+    const audioIsOff = audioToggleBtn.textContent === "Stop Audio";
 
-    if (isTurningOn) {
-        audioToggleBtn.textContent = "On";
+    if (!audioIsOff) {
+        audioToggleBtn.textContent = "Stop Audio";
         audioToggleBtn.classList.add('audio-active');
         audioContainer.style.display = "flex";
 
@@ -92,12 +96,12 @@ audioToggleBtn.addEventListener('click', () => {
         if (trackPath) {
             alertSound.src = trackPath;
             alertSound.load();
+            alertSound.play();
         }
 
     } else {
-        audioToggleBtn.textContent = "Off";
-        // audioToggleBtn.style.display = "none";
-        audioContainer.classList.add('hidden');
+        audioToggleBtn.textContent = "Play Audio";
+        audioContainer.style.display = "none";
         alertSound.pause();
         alertSound.currentTime = 0;
     }
