@@ -39,10 +39,10 @@ const audioContainer = document.getElementById('audio-player-container');
 const alertSound = document.getElementById('timer-sound');
 
 const themeSounds = {
-    'flora-theme': '../assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
-    'mocha-theme': '../assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
-    'aqua-theme': '../assets/audios/aqua_samuelfjohanns-atmosphere-of-atlantis-246389.mp3',
-    'nebula-theme': '../assets/audios/nebula_denis-pavlov-music-cosmos-galaxy-stars-universe-milky-way-planet-ambient-music-208619.mp3'
+    'flora-theme': 'assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
+    'mocha-theme': 'assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
+    'aqua-theme': 'assets/audios/aqua_samuelfjohanns-atmosphere-of-atlantis-246389.mp3',
+    'nebula-theme': 'assets/audios/nebula_denis-pavlov-music-cosmos-galaxy-stars-universe-milky-way-planet-ambient-music-208619.mp3'
 };
 
 // switching themes in the settings modal
@@ -86,6 +86,7 @@ audioToggleBtn.addEventListener('click', () => {
     const audioIsOff = audioToggleBtn.textContent === "Stop Audio";
 
     if (!audioIsOff) {
+        document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p").textContent = "Audio is currently ON";
         audioToggleBtn.textContent = "Stop Audio";
         audioToggleBtn.classList.add('audio-active');
         audioContainer.style.display = "flex";
@@ -101,6 +102,7 @@ audioToggleBtn.addEventListener('click', () => {
 
     } else {
         audioToggleBtn.textContent = "Play Audio";
+        document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p").textContent = "Audio is currently OFF";
         audioContainer.style.display = "none";
         alertSound.pause();
         alertSound.currentTime = 0;
