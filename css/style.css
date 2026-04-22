@@ -700,17 +700,14 @@ button {
   border-radius: 0.5rem;
 }
 
-.settings-audio span {
+.settings-audio .audio-manual-controls {
     display: flex;
-    /* This aligns them vertically in the center so the button doesn't look "sunk" */
     align-items: center; 
-    /* This adds a gap between the text and the button */
     gap: 15px; 
-    /* Optional: pushes them to the left or center */
     justify-content: space-between; 
 }
 
-.settings-audio span button {
+.audio-manual-controls button {
   background-color: var(--off-black);
   color: var(--off-white);
 }
