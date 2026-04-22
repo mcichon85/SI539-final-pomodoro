@@ -66,9 +66,13 @@ function toggleCountdown() {
                 clearInterval(timerInterval);
                 console.log("Time's up!");
                 alarmSound.play();
+                setTimer(setTime);
+                isRunning = false;
+
                 setTimeout(() => {
                     alert("Time's up!");
                 }, 100);
+
             }
         }, 1000);
     }
