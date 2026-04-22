@@ -39,6 +39,10 @@ const audioContainer = document.getElementById('audio-player-container');
 const alertSound = document.getElementById('timer-sound');
 const audioDescription = document.querySelector("body > main > section.settings-modal > div > div.settings-audio > span > p");
 
+// const floraAudio = new Audio('assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3');
+// const mochaAudio = new Audio();
+// const nebulaAudio = new Audio();
+// const aquaAudio = new Audio()
 const themeSounds = {
     'flora-theme': 'assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
     'mocha-theme': 'assets/audios/mocha_lofidreams-cozy-coffee-shop-chill-lofi-music-385853.mp3',
@@ -98,6 +102,7 @@ audioToggleBtn.addEventListener('click', () => {
         if (trackPath) {
             alertSound.src = trackPath;
             alertSound.load();
+            // currentTheme.loop = true;
             alertSound.play();
             switch (currentTheme) {
                 case "flora-theme":
