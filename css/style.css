@@ -255,7 +255,7 @@ body {
 }
 
 .button-80:focus {
-  outline: 3px solid var(--focus-color);
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
 
@@ -431,7 +431,7 @@ li.separator {
 
 .add-task-btn:focus, #play-pause-btn:focus {
   outline: 2px solid var(--focus-color);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 /* From W3C Labeling Controls https://www.w3.org/WAI/tutorials/forms/labels/#hiding-the-label-element */
@@ -518,7 +518,7 @@ li.separator {
 }
 
 /* help and settings modals */
-.help-modal, .settings-modal {
+/* .help-modal, .settings-modal {
   z-index: 2;
   color: var(--off-black);
   display: none;
@@ -535,13 +535,13 @@ li.separator {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-.modal {
+/* .modal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .help-modal-content {
   padding: 1rem 1rem;
@@ -591,6 +591,28 @@ button {
   color: var(--timer-btn-font);
 }
 
+
+dialog {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0;
+    background: var(--off-white);
+    color: var(--off-black);
+    width: 90%;
+}
+
+/* From Gemini: Style the backdrop (the dark overlay) */
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px); /* This makes the background look professional */
+}
+
+/* From Gemini: Ensure the modal is visible when open (the browser adds the [open] attribute) */
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
 /* open modal buttons */
 #open-help-modal, #open-settings-modal {
   background-color: transparent;
@@ -606,7 +628,7 @@ button {
 
 #open-help-modal:focus, #open-settings-modal:focus{
   outline: 2px solid var(--focus-color);
-  outline-offset: 4px;
+  outline-offset: 2px;
   border-radius: 6px;
 }
 
@@ -627,7 +649,7 @@ button {
 
 #close-help-modal:focus, #close-settings-modal:focus {
   outline: 2px solid var(--focus-color);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 .modal-btn-area {
@@ -659,18 +681,6 @@ button {
   padding: 0.5rem 0.7rem;
   background: #eee;
   border-radius: 50%;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 1;
 }
 
 .settings-modal-content {
@@ -712,25 +722,15 @@ button {
   color: var(--off-white);
 }
 
-/* Accessible hide (instead of display:none) */
+/* From Gemini: Accessible hide (instead of display:none) */
 .settings-switch-themes input[type="radio"]{
-  /* position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap; */
   position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-/* Theme "card" */
+/* From Gemini: Theme "card" */
 .settings-switch-themes label{
   display: grid;
   justify-items: center;
@@ -743,7 +743,7 @@ button {
   user-select: none;
 }
 
-/* Thumbnail */
+/* From Gemini: Thumbnail */
 .settings-switch-themes label img{
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -753,7 +753,7 @@ button {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Hover outline */
+/* From Gemini: Hover outline */
 .settings-switch-themes label:hover {
   background-color: rgba(0, 0, 0, 0.05); /* Subtle hint for hover */
     transform: translateY(-2px);
@@ -761,8 +761,8 @@ button {
 }
 
 .settings-switch-themes input[type="radio"]:focus-visible + label {
-    outline: 4px dashed #666; /* High contrast neutral dash */
-    outline-offset: 4px;
+    outline: 4px solid #666; /* High contrast neutral dash */
+    outline-offset: 2px;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -830,12 +830,6 @@ button {
   border-radius: 10px;
   display: block;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.help-modal, .settings-modal {
-  width: 55%;
-  padding: 1.5rem;
-  min-height: 25%;
 }
 
 .settings-modal-content {

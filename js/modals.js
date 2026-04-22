@@ -1,5 +1,5 @@
-const helpModal = document.querySelector(".help-modal");
-const overlay = document.querySelector(".overlay");
+const helpModal = document.getElementById("help-modal");
+// const overlay = document.querySelector(".overlay");
 const openHelpModalBtn = document.querySelector("#open-help-modal");
 const closeHelpModalBtn = document.querySelector("#close-help-modal");
 const todoHeading = document.querySelector("body > main > div.todo-list-container > div > h2");
@@ -11,27 +11,23 @@ const todoHeading = document.querySelector("body > main > div.todo-list-containe
 // }
 
 openHelpModalBtn.addEventListener("click", () => {
-    overlay.style.display = "flex";
-    helpModal.style.display = "flex";
+    helpModal.showModal();
 })
 
 closeHelpModalBtn.addEventListener("click", () => {
-    overlay.style.display = "none";
-    helpModal.style.display = "none";
+    helpModal.close();
 })
 
-const settingsModal = document.querySelector(".settings-modal");
+const settingsModal = document.getElementById("settings-modal");
 const openSettingsModalBtn = document.querySelector("#open-settings-modal");
 const closeSettingsModalBtn = document.querySelector("#close-settings-modal");
 
 openSettingsModalBtn.addEventListener("click", () => {
-    overlay.style.display = "flex";
-    settingsModal.style.display = "flex";
+    settingsModal.showModal();
 })
 
 closeSettingsModalBtn.addEventListener("click", () => {
-    overlay.style.display = "none";
-    settingsModal.style.display = "none";
+    settingsModal.close();
 })
 
 const audioToggleBtn = document.getElementById('audio-toggle-btn');

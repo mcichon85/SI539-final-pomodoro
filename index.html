@@ -55,7 +55,7 @@
     </header>
     <main>
     <!-- I used Google's Gemini to generate the help modal content with the prompt: "Could you write me a short blurb that would be shown in the "help" modal of a pomodoro timer webpage?"-->
-    <section class="help-modal">
+    <dialog class="help-modal" id="help-modal">
         <div class="help-modal-content">
             <h2>Welcome to your <span>Pomodoro Timer!</span></h2>
                 <div class="help-modal-p">
@@ -69,9 +69,9 @@
          <div class="modal-btn-area">
             <button id="close-help-modal">Got it!</button>
          </div>
-    </section>
+    </dialog>
 
-    <section class="settings-modal">
+    <dialog class="settings-modal" id="settings-modal">
         <div class="settings-modal-content">
             <h2>Adjust Your Settings</h2>
             <h3>Pick a theme</h3>
@@ -120,9 +120,9 @@
                 <button id="close-settings-modal">Close</button>
             </div>
         </div>
-    </section>
+    </dialog>
 
-        <div class="overlay"></div>
+        <!-- <div class="overlay"></div> -->
 
         <div class="timer-container">
             <div class="timer-buttons">
