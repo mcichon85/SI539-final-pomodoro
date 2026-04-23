@@ -108,7 +108,7 @@
 
             <div class="settings-audio">
                 <div class="audio-manual-controls">
-                    <p>Audio is currently OFF</p>
+                    <p id="audio-status">Audio is currently OFF</p>
                     <button class="button-80" id="audio-toggle-btn">Play Audio</button>
                 </div>
                 <div id="audio-player-container" class="hidden">
@@ -150,7 +150,7 @@
                     <legend class="visually-hidden">Task Entry</legend>
                     <label for="add-tasks" class="visually-hidden">Add a task to your todo list.</label>
                     <input class="task-input" id="add-tasks" placeholder="My next task is...                                ">
-                    <button class="button-80 add-task-btn">Add</button>
+                    <button class="button-80" id="add-task-btn">Add</button>
                 </fieldset>
                 <ul id="tasks-display">
                     <!-- <li class="checked-task">Task 1</li> -->

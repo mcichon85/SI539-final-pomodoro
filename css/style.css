@@ -1,7 +1,7 @@
 /* 4 themes - flora is the root theme */
 
 :root {
-    --bg-image: url("../assets/images/Flora_background_image.png");
+    --bg-image: url("../assets/images/backgrounds/Flora2_539.png");
     --heading: rgba(30, 62, 48, 0.9);
     --timer-container-bg: rgb(230, 241, 238, 0.9);
     --timer-container-lines: #28513F;
@@ -17,13 +17,14 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #e6308a;
-    --focus-color2: #FFCB05;
+    --focus-color2: #e6308a;
+    /* --focus-color2: #FFCB05; */
     --checked-icon: url(../assets/images/flora-checked-checkbox-svgrepo-com.svg);
     --unchecked-icon: url(../assets/images/checkmarks/flora-unchecked.svg);
 }
 
 [data-theme='mocha-theme'] {
-    --bg-image: url("../assets/images/Mocha_background_image.png");
+    --bg-image: url("../assets/images/backgrounds/Mocha_539.png");
     --heading: rgb(74, 48, 38, 0.9);
     --timer-container-bg: rgb(247, 241, 238, 0.8);
     --timer-container-lines: #9A6551;
@@ -39,12 +40,13 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #E2413C;
+    --focus-color2: #E2413C;
     --checked-icon: url(../assets/images/checkmarks/mocha-checked.svg);
     --unchecked-icon: url(../assets/images/checkmarks/mocha-unchecked.svg);
 }
 
 [data-theme='nebula-theme'] {
-    --bg-image: url("../assets/images/Nebula_background_image.png");
+    --bg-image: url("../assets/images/backgrounds/Nebula_539.png");
     --heading: rgb(76, 41, 97, 0.9);
     --timer-container-bg: rgb(49, 26, 62, 0.75);
     --timer-container-lines: #F5F5F4;
@@ -60,14 +62,15 @@
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
     --focus-color: #D94AEC;
+    --focus-color2: #D94AEC;
     --checked-icon: url(../assets/images/checkmarks/nebula-checked.svg);
     --unchecked-icon: url(../assets/images/checkmarks/nebula-unchecked.svg);
 }
 
 [data-theme='aqua-theme'] {
-    --bg-image: url("../assets/images/Nebula_background_image.png");
+    --bg-image: url("../assets/images/backgrounds/Aqua_539.png");
     --heading: rgb(2, 20, 61, 0.9);
-    --timer-container-bg: rgb(16, 27, 78, 0.8);
+    --timer-container-bg: rgba(13, 28, 72, 0.8);
     --timer-container-lines: #F5F5F4;
     --timer-font: #F5F5F4;
     --timer-btn-bg: #F5F5F4;
@@ -80,7 +83,8 @@
     --todo-input-outline: #1F1F1F;
     --off-white: #F5F5F4;
     --off-black: #1F1F1F;
-    --focus-color: #31abbb;
+    --focus-color: #2dd3e9;
+    --focus-color2: #1B5A65;
     --checked-icon: url(../assets/images/checkmarks/aqua-checked.svg);
     --unchecked-icon: url(../assets/images/checkmarks/aqua-unchecked.svg);
 }
@@ -410,13 +414,13 @@ li.separator {
 .task-input:hover, .task-input:focus{
   outline: none;
   text-decoration: underline;
-  text-decoration-color: var(--focus-color); 
+  text-decoration-color: var(--focus-color2); 
   text-decoration-thickness: 4rem;
   text-underline-offset: 4px;
   /* outline: 1px solid var(--focus-color); */
 }
 
-.task-input-row .add-task-btn {
+.task-input-row #add-task-btn {
   font-size: 18px;
   border: none;
   outline: none;
@@ -429,8 +433,13 @@ li.separator {
   border-radius: 0.5rem;
 }
 
-.add-task-btn:focus, #play-pause-btn:focus {
+#play-pause-btn:focus {
   outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+#add-task-btn:focus {
+  outline: 2px solid var(--focus-color2);
   outline-offset: 2px;
 }
 
@@ -823,8 +832,16 @@ dialog[open] {
     font-size: 1.25rem;
   }
 
+  .settings-modal {
+    width: 75%;
+  }
+
+  .help-modal {
+    width: 45%;
+  }
+
   .settings-switch-themes label img{
-  width: 75%;
+  width: 60%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;

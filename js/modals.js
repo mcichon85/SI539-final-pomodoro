@@ -33,7 +33,7 @@ closeSettingsModalBtn.addEventListener("click", () => {
 const audioToggleBtn = document.getElementById('audio-toggle-btn');
 const audioContainer = document.getElementById('audio-player-container');
 const alertSound = document.getElementById('timer-sound');
-const audioDescription = document.querySelector("body > main > section.settings-modal > div > div.settings-audio > div.audio-manual-controls > p");
+const audioDescription = document.getElementById("audio-status");
 
 const themeSounds = {
     'flora-theme': 'assets/audios/flora_starostin-universe-cosmic-planet-galaxy-music-258633.mp3',
@@ -55,7 +55,6 @@ const rootElement = document.documentElement;
             } else {
                 rootElement.setAttribute('data-theme', selectedTheme);
             }
-            console.log("Active Theme:", selectedTheme);
             audioDescription.textContent = "Audio is currently OFF";
  
             if (selectedTheme == "flora-theme") {
@@ -111,7 +110,6 @@ audioToggleBtn.addEventListener('click', () => {
                     break;
                 default:
                     audioDescription.textContent = "Audio is currently ON"
-                    // Code to run if no cases match
                 }
         }
 
